@@ -255,6 +255,7 @@ const EventItem = ({ event, multiday, hasPrev, hasNext, showdate }: EventItemPro
         disabled={event.disabled}
       >
         <ButtonBase
+          sx={{ textAlign: "center !important" }}
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
