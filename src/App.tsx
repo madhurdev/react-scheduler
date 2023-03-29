@@ -32,7 +32,9 @@ function App() {
       </div>
       <Scheduler
         events={EVENTS}
+        view="day"
         resources={RECOURCES}
+        // day={{startHour:0,endHour:23,step:15}}
         resourceFields={{
           idField: "admin_id",
           textField: "title",
