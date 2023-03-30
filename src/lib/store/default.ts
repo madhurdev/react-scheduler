@@ -93,7 +93,7 @@ export const defaultProps = (props: Partial<SchedulerProps>) => {
     view: initialView,
     ...Object.assign(
       {
-        height: 1800,
+        height: 3000,
         navigation: true,
         selectedDate: new Date(),
         disableViewNavigator: false,

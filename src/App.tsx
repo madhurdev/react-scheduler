@@ -34,7 +34,7 @@ function App() {
         events={EVENTS}
         view="day"
         resources={RECOURCES}
-        // day={{startHour:0,endHour:23,step:15}}
+        day={{ startHour: 0, endHour: 10, step: 60 }}
         resourceFields={{
           idField: "admin_id",
           textField: "title",

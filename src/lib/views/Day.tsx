@@ -221,7 +221,7 @@ const TimeHeader = (values: any) => {
   console.log("data ", data);
   return (
     <div style={{ display: "grid", height: "100%", gridTemplateColumns: "auto auto" }}>
-      <div style={{ textAlign: "center" }}>
+      <div style={{ textAlign: "center", display: "grid" }}>
         <Typography
           style={{ fontSize: "0.65rem", fontWeight: "800", textAlign: "center" }}
           variant="caption"
