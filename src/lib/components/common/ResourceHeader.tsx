@@ -48,7 +48,7 @@ const ResourceHeader = ({ resource }: ResourceHeaderProps) => {
         primary={
           <Typography
             variant="body2"
-            style={{ fontSize: "0.65rem", textTransform: "capitalize" }}
+            style={{ fontSize: "0.65rem", textTransform: "capitalize", fontWeight: "900" }}
             noWrap
           >
             {text}
