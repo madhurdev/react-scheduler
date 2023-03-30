@@ -14,7 +14,7 @@ npm i @madhurdev/react-scheduler
 ## Usage
 
 ```jsx
-import { Scheduler } from "@madhurdev/react-scheduler";
+import Scheduler from "@aldabil/react-scheduler";
 ```
 
 ## Example
@@ -86,7 +86,7 @@ import { Scheduler } from "@madhurdev/react-scheduler";
 Used to help manage and control the internal state of the `Scheduler` component from outside of `Scheduler` props, Example:
 
 ```js
-import { Scheduler } from "@aldabil/react-scheduler";
+import Scheduler from "@aldabil/react-scheduler";
 import type { SchedulerRef } from "@aldabil/react-scheduler/types"
 
 const SomeComponent = () => {
