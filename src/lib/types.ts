@@ -78,6 +78,14 @@ export interface Translations {
 }
 
 export type InputTypes = "input" | "date" | "select" | "hidden";
+
+export interface EventRendererProps
+  extends Pick<
+    React.HTMLAttributes<HTMLElement>,
+    "draggable" | "onDragStart" | "onDragEnd" | "onDragOver" | "onDragEnter" | "onClick"
+  > {
+  event: ProcessedEvent;
+}
 export interface FieldInputProps {
   /** Available to all InputTypes */
   label?: string;
@@ -161,6 +169,7 @@ export interface SchedulerHelpers {
   loading(status: boolean): void;
   edited?: ProcessedEvent;
   onConfirm(event: ProcessedEvent | ProcessedEvent[], action: EventActions): void;
+  [resourceKey: string]: unknown;
 }
 export interface SchedulerProps {
   /**Min height of table
@@ -191,7 +200,7 @@ export interface SchedulerProps {
   /**Events to display */
   events: ProcessedEvent[];
   /** Custom event render method */
-  eventRenderer?: (event: ProcessedEvent) => JSX.Element | null;
+  eventRenderer?: (props: EventRendererProps) => JSX.Element | null;
   /**Async function to load remote data with current view data. */
   getRemoteEvents?(params: ViewEvent): Promise<ProcessedEvent[] | void>;
   /**Custom additional fields with it's settings */
@@ -271,6 +280,14 @@ export interface SchedulerProps {
    * @default true
    */
   draggable?: boolean;
+  /**
+   * Triggered when the `selectedDate` prop changes by navigation date picker or `today` button.
+   */
+  onSelectedDateChange?(date: Date): void;
+  /**
+   * Triggered when navigation view changes.
+   */
+  onViewChange?(view: View): void;
 }
 
 export interface SchedulerRef {

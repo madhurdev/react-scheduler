@@ -1,6 +1,6 @@
 {
   "name": "@madhurdev/react-scheduler",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "React scheduler component based on Material-UI & date-fns",
   "files": [
     "*"
