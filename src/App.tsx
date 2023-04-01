@@ -1,8 +1,8 @@
-import Scheduler from "./lib";
-import { Button, Typography } from "@mui/material";
+import { Scheduler } from "./lib";
 import { EVENTS, RECOURCES } from "./events";
-import { SchedulerRef } from "./lib/types";
 import { useRef } from "react";
+import { SchedulerRef } from "./lib/types";
+// import { useRef } from "react";
 
 function App() {
   const calendarRef = useRef<SchedulerRef>(null);

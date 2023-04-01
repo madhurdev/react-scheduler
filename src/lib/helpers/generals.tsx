@@ -64,9 +64,11 @@ export const getResourcedEvents = (
     // Handle single select & multiple select accordingly
     const arrytize = isMultiple && !Array.isArray(event[keyName]);
     const eventVal = arrytize ? [event[keyName]] : event[keyName];
-    const isThisResource = isMultiple
-      ? eventVal.includes(resource[keyName])
-      : eventVal === resource[keyName];
+
+    const isThisResource =
+      isMultiple || Array.isArray(eventVal)
+        ? eventVal.includes(resource[keyName])
+        : eventVal === resource[keyName];
 
     if (isThisResource) {
       recousedEvents.push({
@@ -129,7 +131,17 @@ export const filterTodayEvents = (events: ProcessedEvent[], today: Date, timeZon
       list.push(event);
     }
   }
-  return list.sort((a, b) => a.end.getTime() - b.end.getTime());
+
+  // Sort by the length est event
+  return sortEventsByTheLengthest(list);
+};
+
+export const sortEventsByTheLengthest = (events: ProcessedEvent[]) => {
+  return events.sort((a, b) => {
+    const aDiff = a.end.getTime() - a.start.getTime();
+    const bDiff = b.end.getTime() - b.start.getTime();
+    return bDiff - aDiff;
+  });
 };
 
 export const filterMultiDaySlot = (
