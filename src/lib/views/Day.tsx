@@ -223,7 +223,6 @@ export { Day };
 
 const TimeHeader = (values: any) => {
   const data = values;
-  console.log("data ", data);
   return (
     <div style={{ display: "grid", height: "100%", gridTemplateColumns: "auto auto" }}>
       <div style={{ textAlign: "center", display: "grid" }}>
@@ -247,7 +246,6 @@ const TimeHeader = (values: any) => {
         <div style={{ alignSelf: "center", gridRow: "1/3", gridColumn: "1" }}>15-</div>
         <div style={{ alignSelf: "center", gridRow: "2/4", gridColumn: "1" }}>30-</div>
         <div style={{ alignSelf: "center", gridRow: "3/5", gridColumn: "1" }}>45-</div>
-        {/* <div style={{alignSelf:"end"}}>0-</div> */}
       </div>
     </div>
   );
