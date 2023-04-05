@@ -126,13 +126,14 @@ const Day = () => {
     );
   };
 
-  const renderTable = (resource?: DefaultRecourse) => {
+  const renderTable = (resource?: DefaultRecourse, index?: number) => {
     let recousedEvents = events;
     if (resource) {
       recousedEvents = getResourcedEvents(events, resource, resourceFields, fields);
     }
 
     // Equalizing multi-day section height
+    const dynheader = index === 0 ? true : false;
     const shouldEqualize = resources.length && resourceViewMode !== "tabs";
     const allWeekMulti = filterMultiDaySlot(
       shouldEqualize ? events : recousedEvents,
@@ -170,7 +171,12 @@ const Day = () => {
               <Fragment key={i}>
                 {/* Time Cells */}
                 <span className="rs__cell rs__header rs__time" style={{ height: CELL_HEIGHT }}>
-                  <TimeHeader value={format(h, hFormat, { locale })}></TimeHeader>
+                  {dynheader ? (
+                    <TimeHeader value={format(h, hFormat, { locale })}></TimeHeader>
+                  ) : (
+                    <></>
+                  )}
+
                   {/* <Typography
                     style={{ fontSize: "0.65rem", fontWeight: "800", textAlign: "center" }}
                     variant="caption"

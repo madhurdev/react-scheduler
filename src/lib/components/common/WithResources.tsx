@@ -5,7 +5,7 @@ import { ButtonTabProps, ButtonTabs } from "./Tabs";
 import useStore from "../../hooks/useStore";
 
 interface WithResourcesProps {
-  renderChildren(resource: DefaultRecourse): ReactChild;
+  renderChildren(resource: DefaultRecourse, index: number): ReactChild;
 }
 const WithResources = ({ renderChildren }: WithResourcesProps) => {
   const { resourceViewMode } = useStore();
@@ -25,7 +25,7 @@ const ResourcesTables = ({ renderChildren }: WithResourcesProps) => {
       {resources.map((res: DefaultRecourse, i: number) => (
         <div key={`${res[resourceFields.idField]}_${i}`}>
           <ResourceHeader resource={res} />
-          {renderChildren(res)}
+          {renderChildren(res, i)}
         </div>
       ))}
     </>
@@ -35,11 +35,11 @@ const ResourcesTables = ({ renderChildren }: WithResourcesProps) => {
 const ResourcesTabTables = ({ renderChildren }: WithResourcesProps) => {
   const { resources, resourceFields, selectedResource, handleState } = useStore();
 
-  const tabs: ButtonTabProps[] = resources.map((res) => {
+  const tabs: ButtonTabProps[] = resources.map((res, i) => {
     return {
       id: res[resourceFields.idField],
       label: <ResourceHeader resource={res} />,
-      component: <>{renderChildren(res)}</>,
+      component: <>{renderChildren(res, i)}</>,
     };
   });
 
