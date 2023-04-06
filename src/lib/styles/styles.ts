@@ -26,7 +26,7 @@ export const Wrapper = styled("div")<{ dialog: number }>(({ theme, dialog }) => 
 export const Table = styled("div")<{ resource_count: number }>(({ resource_count }) => ({
   position: "relative",
   display: "flex",
-  flexDirection: resource_count > 1 ? "row" : "column",
+  flexDirection: resource_count > 1 ? "row" : "row",
   width: "100%",
   boxSizing: "content-box",
   "& > div": {
