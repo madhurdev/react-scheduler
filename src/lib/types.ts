@@ -34,7 +34,8 @@ export type DayHours =
   | 20
   | 21
   | 22
-  | 23;
+  | 23
+  | 24;
 export interface CellRenderedProps {
   day: Date;
   start: Date;
@@ -143,7 +144,7 @@ export interface FieldProps {
 }
 export type ProcessedEvent = CalendarEvent & Record<string, any>;
 export type EventActions = "create" | "edit";
-export type ViewEvent = {
+export type RemoteQuery = {
   start: Date;
   end: Date;
   view: "day" | "week" | "month";
@@ -202,7 +203,7 @@ export interface SchedulerProps {
   /** Custom event render method */
   eventRenderer?: (props: EventRendererProps) => JSX.Element | null;
   /**Async function to load remote data with current view data. */
-  getRemoteEvents?(params: ViewEvent): Promise<ProcessedEvent[] | void>;
+  getRemoteEvents?(params: RemoteQuery): Promise<ProcessedEvent[] | void>;
   /**Custom additional fields with it's settings */
   fields: FieldProps[];
   /**Table loading state */
