@@ -8,7 +8,7 @@
 ## Installation
 
 ```jsx
-npm i @aldabil/react-scheduler
+npm i @madhurdev/react-scheduler
 ```
 
 ## Usage

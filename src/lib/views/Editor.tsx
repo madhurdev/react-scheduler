@@ -230,7 +230,13 @@ const Editor = () => {
   };
 
   return (
-    <Dialog open={dialog} fullScreen={isMobile} maxWidth={dialogMaxWidth}>
+    <Dialog
+      style={{ maxHeight: "80%" }}
+      fullWidth
+      open={dialog}
+      fullScreen={isMobile}
+      maxWidth={dialogMaxWidth}
+    >
       {renderEditor()}
     </Dialog>
   );

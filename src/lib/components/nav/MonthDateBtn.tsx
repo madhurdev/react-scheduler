@@ -37,8 +37,8 @@ const MonthDateBtn = ({ selectedDate, onChange }: MonthDateBtnProps) => {
   };
   return (
     <>
-      <LocaleArrow type="prev" onClick={handlePrev} aria-label="previous month" />
-      <Button style={{ padding: 4 }} onClick={handleOpen} aria-label="selected month">
+      <LocaleArrow type="prev" onClick={handlePrev} />
+      <Button style={{ padding: 4, fontSize: "0.65rem" }} onClick={handleOpen}>
         {format(selectedDate, "MMMM yyyy", { locale })}
       </Button>
       <Popover

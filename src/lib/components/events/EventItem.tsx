@@ -244,10 +244,21 @@ const EventItem = ({ event, multiday, hasPrev, hasNext, showdate }: EventItemPro
     return (
       <EventItemPapper
         key={`${event.start.getTime()}_${event.end.getTime()}_${event.event_id}`}
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "block",
+          background: event.disabled ? "#d0d0d0" : event.color || theme.palette.primary.main,
+          color: event.disabled ? "#808080" : theme.palette.primary.contrastText,
+          cursor: event.disabled ? "not-allowed" : "pointer",
+          overflow: "hidden",
+          borderLeft: "4px solid black",
+        }}
         color={event.color}
         disabled={event.disabled}
       >
         <ButtonBase
+          sx={{ textAlign: "center !important" }}
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();

@@ -37,8 +37,8 @@ const DayDateBtn = ({ selectedDate, onChange }: DayDateBtnProps) => {
   };
   return (
     <>
-      <LocaleArrow type="prev" onClick={handlePrev} aria-label="previous day" />
-      <Button style={{ padding: 4 }} onClick={handleOpen} aria-label="selected date">
+      <LocaleArrow type="prev" onClick={handlePrev} />
+      <Button style={{ padding: 4, fontSize: "0.65rem" }} onClick={handleOpen}>
         {format(selectedDate, "dd MMMM yyyy", { locale })}
       </Button>
       <Popover
