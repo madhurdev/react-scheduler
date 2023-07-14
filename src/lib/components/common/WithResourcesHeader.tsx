@@ -3,25 +3,36 @@ import { DefaultRecourse } from "../../types";
 import { ResourceHeader } from "./ResourceHeader";
 import { ButtonTabProps, ButtonTabs } from "./Tabs";
 import useStore from "../../hooks/useStore";
+import { EmptyHeader } from "./EmptyHeader";
 
-interface WithResourcesProps {
+interface WithResourcesHeaderProps {
   renderChildren(resource: DefaultRecourse, index: number): ReactChild;
+  renderHeaderTable(): ReactChild;
 }
-const WithResources = ({ renderChildren }: WithResourcesProps) => {
+const WithResourcesHeader = ({ renderChildren, renderHeaderTable }: WithResourcesHeaderProps) => {
   const { resourceViewMode } = useStore();
 
   if (resourceViewMode === "tabs") {
-    return <ResourcesTabTables renderChildren={renderChildren} />;
+    return (
+      <ResourcesTabTables renderChildren={renderChildren} renderHeaderTable={renderHeaderTable} />
+    );
   } else {
-    return <ResourcesTables renderChildren={renderChildren} />;
+    return (
+      <ResourcesTables renderChildren={renderChildren} renderHeaderTable={renderHeaderTable} />
+    );
   }
 };
 
-const ResourcesTables = ({ renderChildren }: WithResourcesProps) => {
+const ResourcesTables = ({ renderChildren, renderHeaderTable }: WithResourcesHeaderProps) => {
   const { resources, resourceFields } = useStore();
 
+  const newLocal = 0;
   return (
     <>
+      <div style={{ flexGrow: 0 }}>
+        <EmptyHeader resource={resources[0]} />
+        {renderHeaderTable()}
+      </div>
       {resources.map((res: DefaultRecourse, i: number) => (
         <div key={`${res[resourceFields.idField]}_${i}`}>
           <ResourceHeader resource={res} />
@@ -32,7 +43,7 @@ const ResourcesTables = ({ renderChildren }: WithResourcesProps) => {
   );
 };
 
-const ResourcesTabTables = ({ renderChildren }: WithResourcesProps) => {
+const ResourcesTabTables = ({ renderChildren }: WithResourcesHeaderProps) => {
   const { resources, resourceFields, selectedResource, handleState } = useStore();
 
   const tabs: ButtonTabProps[] = resources.map((res, i) => {
@@ -65,8 +76,8 @@ const ResourcesTabTables = ({ renderChildren }: WithResourcesProps) => {
     <ButtonTabs tabs={tabs} tab={currentTabSafeId} setTab={setTab} style={{ display: "grid" }} />
   );
 };
-WithResources.defaultProps = {
+WithResourcesHeader.defaultProps = {
   span: 1,
 };
 
-export { WithResources };
+export { WithResourcesHeader };

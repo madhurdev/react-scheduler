@@ -77,6 +77,12 @@ export const EVENTS: ProcessedEvent[] = [
 ];
 
 export const RECOURCES = [
+  // {
+  //   admin_id: 0,
+  //   title: "TIME",
+  //   mobile: "Employes",
+  //   color: "#ab2d2d",
+  // },
   {
     admin_id: 1,
     title: "one",
@@ -84,27 +90,27 @@ export const RECOURCES = [
     avatar: "https://picsum.photos/200/300",
     color: "#ab2d2d",
   },
-  {
-    admin_id: 2,
-    title: "two",
-    mobile: "555666777",
-    avatar: "https://picsum.photos/200/300",
-    color: "#58ab2d",
-  },
-  {
-    admin_id: 3,
-    title: "Three",
-    mobile: "555666777",
-    avatar: "https://picsum.photos/200/300",
-    color: "#a001a2",
-  },
-  {
-    admin_id: 4,
-    title: "Four",
-    mobile: "555666777",
-    avatar: "https://picsum.photos/200/300",
-    color: "#08c5bd",
-  },
+  // {
+  //   admin_id: 2,
+  //   title: "two",
+  //   mobile: "555666777",
+  //   avatar: "https://picsum.photos/200/300",
+  //   color: "#58ab2d",
+  // },
+  // {
+  //   admin_id: 3,
+  //   title: "Three",
+  //   mobile: "555666777",
+  //   avatar: "https://picsum.photos/200/300",
+  //   color: "#a001a2",
+  // },
+  // {
+  //   admin_id: 4,
+  //   title: "Four",
+  //   mobile: "555666777",
+  //   avatar: "https://picsum.photos/200/300",
+  //   color: "#08c5bd",
+  // },
 ];
 
 export const generateRandomEvents = (total = 300) => {
