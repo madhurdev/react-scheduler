@@ -34,8 +34,16 @@ const Cell = ({
       ...props,
     });
   }
+
   return (
-    <Button fullWidth {...props}>
+    <Button
+      fullWidth
+      aria-label={`${start.toLocaleString("en", {
+        dateStyle: "full",
+        timeStyle: "long",
+      })} - ${end.toLocaleString("en", { dateStyle: "full", timeStyle: "long" })}`}
+      {...props}
+    >
       {children}
     </Button>
   );

@@ -60,7 +60,7 @@ const DayDateBtn = ({ selectedDate, onChange }: DayDateBtnProps) => {
           />
         </DateProvider>
       </Popover>
-      <LocaleArrow type="next" onClick={handleNext} />
+      <LocaleArrow type="next" onClick={handleNext} aria-label="next day" />
     </>
   );
 };

@@ -67,7 +67,7 @@ const WeekDateBtn = ({ selectedDate, onChange, weekProps }: WeekDateBtnProps) =>
           />
         </DateProvider>
       </Popover>
-      <LocaleArrow type="next" onClick={handleNext} />
+      <LocaleArrow type="next" onClick={handleNext} aria-label="next week" />
     </>
   );
 };

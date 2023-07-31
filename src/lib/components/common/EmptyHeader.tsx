@@ -3,10 +3,10 @@ import { useWindowResize } from "../../hooks/useWindowResize";
 import { DefaultRecourse } from "../../types";
 import useStore from "../../hooks/useStore";
 
-interface ResourceHeaderProps {
+interface EmptyHeaderProps {
   resource: DefaultRecourse;
 }
-const ResourceHeader = ({ resource }: ResourceHeaderProps) => {
+const EmptyHeader = ({ resource }: EmptyHeaderProps) => {
   const { recourseHeaderComponent, resourceFields, resources, direction, resourceViewMode } =
     useStore();
   const { width } = useWindowResize();
@@ -37,13 +37,6 @@ const ResourceHeader = ({ resource }: ResourceHeaderProps) => {
       }}
       component="span"
     >
-      <ListItemAvatar style={{ display: "flex", justifyContent: "center", minWidth: "45px" }}>
-        <Avatar
-          style={{ background: color, width: "35px", height: "35px", textTransform: "capitalize" }}
-          alt={text}
-          src={avatar}
-        />
-      </ListItemAvatar>
       <ListItemText
         primary={
           <Typography
@@ -51,7 +44,7 @@ const ResourceHeader = ({ resource }: ResourceHeaderProps) => {
             style={{ fontSize: "0.65rem", textTransform: "capitalize", fontWeight: "900" }}
             noWrap
           >
-            {text}
+            Queuick
           </Typography>
         }
         secondary={
@@ -61,11 +54,10 @@ const ResourceHeader = ({ resource }: ResourceHeaderProps) => {
             color="textSecondary"
             noWrap
           >
-            {subtext}
+            Scheduler
           </Typography>
         }
         style={{
-          width: width / (resources.length + 1),
           padding: 0,
           display: "flex",
           flexDirection: "column",
@@ -76,4 +68,4 @@ const ResourceHeader = ({ resource }: ResourceHeaderProps) => {
   );
 };
 
-export { ResourceHeader };
+export { EmptyHeader };

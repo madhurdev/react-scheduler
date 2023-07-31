@@ -60,7 +60,7 @@ const MonthDateBtn = ({ selectedDate, onChange }: MonthDateBtnProps) => {
           />
         </DateProvider>
       </Popover>
-      <LocaleArrow type="next" onClick={handleNext} />
+      <LocaleArrow type="next" onClick={handleNext} aria-label="next month" />
     </>
   );
 };

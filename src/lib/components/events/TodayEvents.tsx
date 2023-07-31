@@ -13,6 +13,7 @@ interface TodayEventsProps {
   step: number;
   minuteHeight: number;
   direction: "rtl" | "ltr";
+  timeZone?: string;
 }
 const TodayEvents = ({
   todayEvents,
@@ -21,6 +22,7 @@ const TodayEvents = ({
   step,
   minuteHeight,
   direction,
+  timeZone,
 }: TodayEventsProps) => {
   const crossingIds: Array<number | string> = [];
 
@@ -32,28 +34,21 @@ const TodayEvents = ({
           startHour={startHour}
           step={step}
           minuteHeight={minuteHeight}
+          timeZone={timeZone}
         />
       )}
 
       {todayEvents.map((event, i) => {
-        const height = differenceInMinutes(event.end, event.start) * minuteHeight;
+        const height = differenceInMinutes(event.end, event.start) * minuteHeight - BORDER_HEIGHT;
         const minituesFromTop = differenceInMinutes(event.start, setHours(today, startHour));
-        const topSpace = minituesFromTop * minuteHeight; // + headerHeight;
-        /** Add border factor to height of each slot. exclude first/last slots */
-        const slots = height / 60; // Math.max(height / step - 2, 0);
+        const topSpace = minituesFromTop * minuteHeight;
+        /** Add border factor to height of each slot */
+        const slots = height / 60;
         const heightBorderFactor = slots * BORDER_HEIGHT;
 
-        /**
-         * Add border height since grid has a 1px border
-         */
+        /** Calculate top space */
         const slotsFromTop = minituesFromTop / step;
-
-        const borderFactor = slotsFromTop + BORDER_HEIGHT;
-        const top = topSpace + borderFactor;
-
-        // if (top < 0) {
-        //   return null;
-        // }
+        const top = topSpace + slotsFromTop;
 
         const crossingEvents = traversCrossingEvents(todayEvents, event);
         const alreadyRendered = crossingEvents.filter((e) => crossingIds.includes(e.event_id));

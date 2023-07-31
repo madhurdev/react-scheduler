@@ -6,7 +6,7 @@ export const EVENTS: ProcessedEvent[] = [
     title: "Event 1 (Disabled)",
     start: new Date(new Date(new Date().setHours(9)).setMinutes(0)),
     end: new Date(new Date(new Date().setHours(10)).setMinutes(0)),
-    disabled: true,
+    disabled: false,
     admin_id: [1, 2, 3, 4],
   },
   {
@@ -77,6 +77,12 @@ export const EVENTS: ProcessedEvent[] = [
 ];
 
 export const RECOURCES = [
+  // {
+  //   admin_id: 0,
+  //   title: "TIME",
+  //   mobile: "Employes",
+  //   color: "#ab2d2d",
+  // },
   {
     admin_id: 1,
     title: "one",
@@ -106,3 +112,26 @@ export const RECOURCES = [
     color: "#08c5bd",
   },
 ];
+
+export const generateRandomEvents = (total = 300) => {
+  const events = [];
+  for (let i = 0; i < total; i++) {
+    const day = Math.round(i % 15);
+    events.push({
+      event_id: Math.random(),
+      title: "Event " + (i + 1),
+      start: new Date(
+        new Date(new Date(new Date().setHours(10)).setMinutes(30)).setDate(
+          new Date().getDate() + day
+        )
+      ),
+      end: new Date(
+        new Date(new Date(new Date().setHours(14)).setMinutes(0)).setDate(
+          new Date().getDate() + day
+        )
+      ),
+    });
+  }
+
+  return events;
+};

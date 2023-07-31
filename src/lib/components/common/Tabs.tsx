@@ -33,11 +33,11 @@ const StyledTaps = styled("div")(({ theme }: { theme: Theme }) => ({
   backgroundColor: theme.palette.background.paper,
   alignSelf: "center",
   "& .tabs": {
-    borderColor: theme.palette.grey[300],
+    borderColor: theme.palette.common["white"],
     borderStyle: "solid",
     borderWidth: 1,
     "& button.MuiTab-root": {
-      borderColor: theme.palette.grey[300],
+      borderColor: theme.palette.common["white"],
       borderRightStyle: "solid",
       borderWidth: 1,
     },
