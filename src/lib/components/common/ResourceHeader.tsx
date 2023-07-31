@@ -67,6 +67,7 @@ const ResourceHeader = ({ resource }: ResourceHeaderProps) => {
         style={{
           width: width / (resources.length + 1),
           padding: 0,
+          height: "30px",
           display: "flex",
           flexDirection: "column",
           alignItems: "stretch",

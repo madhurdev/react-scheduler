@@ -43,9 +43,7 @@ const EmptyHeader = ({ resource }: EmptyHeaderProps) => {
             variant="body2"
             style={{ fontSize: "0.65rem", textTransform: "capitalize", fontWeight: "900" }}
             noWrap
-          >
-            Queuick
-          </Typography>
+          ></Typography>
         }
         secondary={
           <Typography
@@ -53,12 +51,11 @@ const EmptyHeader = ({ resource }: EmptyHeaderProps) => {
             style={{ fontSize: "0.55rem", textTransform: "capitalize" }}
             color="textSecondary"
             noWrap
-          >
-            Scheduler
-          </Typography>
+          ></Typography>
         }
         style={{
           padding: 0,
+          height: "30px",
           display: "flex",
           flexDirection: "column",
           alignItems: "stretch",
