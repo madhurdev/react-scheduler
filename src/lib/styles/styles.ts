@@ -48,21 +48,23 @@ export const TableGrid = styled("div")<{ days: number; sticky?: string; indent?:
       gridTemplateColumns: +indent > 0 ? `auto repeat(${days}, 1fr)` : "",
     },
     borderStyle: "solid",
-    borderColor: theme.palette.grey[300],
+    borderColor: theme.palette.common["white"],
     borderWidth: "0 0 0 1px",
     "&:first-of-type": {
-      borderWidth: "1px 0 0 1px",
+      borderWidth: "1px 0px 0px 1px",
     },
     "&:last-of-type": {
-      borderWidth: "0 0 1px 1px",
+      borderWidth: "0 0px 1px 1px",
     },
     "& .rs__cell": {
-      background: theme.palette.background.paper,
+      background: "#F2E1F9",
       position: "relative",
       borderStyle: "solid",
-      borderColor: theme.palette.grey[300],
-      borderWidth: "0 1px 1px 0",
+      borderRadius: "6px",
+      borderColor: theme.palette.common["white"],
+      borderWidth: "0 2px 1px 0",
       "&.rs__header": {
+        background: "#E6E6E6",
         "& > :first-of-type": {
           padding: "2px 5px",
         },
@@ -130,19 +132,19 @@ export const TableGridHeader = styled("div")<{ days: number; sticky?: string; in
       gridTemplateColumns: +indent > 0 ? `auto` : "auto",
     },
     borderStyle: "solid",
-    borderColor: theme.palette.grey[300],
+    borderColor: theme.palette.common["white"],
     borderWidth: "0 0 0 1px",
     "&:first-of-type": {
-      borderWidth: "1px 0 0 1px",
+      borderWidth: "1px 0px 0px 1px",
     },
     "&:last-of-type": {
-      borderWidth: "0 0 1px 1px",
+      borderWidth: "0 0px 1px 1px",
     },
     "& .rs__cell": {
-      background: theme.palette.background.paper,
+      background: "#E6E6E6",
       position: "relative",
       borderStyle: "solid",
-      borderColor: theme.palette.grey[300],
+      borderColor: theme.palette.common["white"],
       borderWidth: "0 1px 1px 0",
       "&.rs__header": {
         "& > :first-of-type": {

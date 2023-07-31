@@ -24,7 +24,7 @@ const EmptyHeader = ({ resource }: EmptyHeaderProps) => {
     resourceViewMode === "tabs"
       ? {}
       : {
-          borderColor: "#eee",
+          borderColor: "white",
           borderStyle: "solid",
           borderWidth: "1px 1px 0 1px",
         };

@@ -242,10 +242,10 @@ const DayNew = () => {
       <>
         {/* Header */}
         <TableGrid days={1} ref={headersRef} sticky="1">
-          <span className="rs__cell"></span>
+          <span className="rs__cell" style={{ background: "#E6E6E6" }}></span>
           <span
             className={`rs__cell rs__header ${isToday(selectedDate) ? "rs__today_cell" : ""}`}
-            style={{ height: headerHeight }}
+            style={{ height: headerHeight, background: "#E6E6E6" }}
           >
             {typeof headRenderer === "function" ? (
               <div>{headRenderer(selectedDate)}</div>
