@@ -29,7 +29,7 @@ const ResourcesTables = ({ renderChildren, renderHeaderTable }: WithResourcesHea
   const newLocal = 0;
   return (
     <>
-      <div style={{ flexGrow: 0 }}>
+      <div style={{ flexGrow: 0, left: 0, position: "sticky", zIndex: 20 }}>
         <EmptyHeader resource={resources[0]} />
         {renderHeaderTable()}
       </div>
