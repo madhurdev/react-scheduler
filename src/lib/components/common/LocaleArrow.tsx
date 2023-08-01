@@ -20,7 +20,7 @@ const LocaleArrow = ({ type, onClick, ...props }: LocaleArrowProps) => {
 
   return (
     <IconButton
-      style={{ padding: 2 }}
+      style={{ padding: 2, background: "#EDEDED", borderRadius: "20%" }}
       onClick={onClick}
       onDragOver={(e) => {
         e.preventDefault();

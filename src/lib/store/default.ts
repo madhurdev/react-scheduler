@@ -96,7 +96,7 @@ export const defaultProps = (props: Partial<SchedulerProps>) => {
         height: 3000,
         navigation: true,
         selectedDate: new Date(),
-        disableViewNavigator: false,
+        disableViewNavigator: true,
         events: [],
         fields: [],
         loading: undefined,

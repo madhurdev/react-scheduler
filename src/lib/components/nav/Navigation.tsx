@@ -89,30 +89,37 @@ const Navigation = () => {
   return (
     <div
       style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
+        display: "grid",
+        gridTemplateColumns: "auto auto auto",
+        justifyContent: "start",
+        gap: "20px",
       }}
     >
-      <div data-testid="date-navigator">{navigation && renderDateSelector()}</div>
-
+      <div style={{ marginLeft: "65px" }} data-testid="date-navigator">
+        {navigation && renderDateSelector()}
+      </div>
+      <Button
+        style={{ padding: 2, background: "#EDEDED", borderRadius: "8px", alignSelf: "start" }}
+        onClick={() => handleSelectedDateChange(new Date())}
+        aria-label={translations.navigation.today}
+      >
+        {translations.navigation.today}
+      </Button>
       <div
         data-testid="view-navigator"
         style={{
           visibility: disableViewNavigator ? "hidden" : "visible",
+          display: "flex",
+          flexFlow: "row",
+          gap: "5px",
         }}
       >
-        <Button
-          onClick={() => handleSelectedDateChange(new Date())}
-          aria-label={translations.navigation.today}
-        >
-          {translations.navigation.today}
-        </Button>
         {views.length > 1 &&
           (isDesktop ? (
             views.map((v) => (
               <Button
                 key={v}
+                style={{ padding: 2, background: "#EDEDED", borderRadius: "8px" }}
                 color={v === view ? "primary" : "inherit"}
                 onClick={() => handleChangeView(v)}
                 onDragOver={(e) => {

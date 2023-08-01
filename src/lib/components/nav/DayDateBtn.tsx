@@ -37,30 +37,42 @@ const DayDateBtn = ({ selectedDate, onChange }: DayDateBtnProps) => {
   };
   return (
     <>
-      <LocaleArrow type="prev" onClick={handlePrev} />
-      <Button style={{ padding: 4, fontSize: "0.65rem" }} onClick={handleOpen}>
-        {format(selectedDate, "dd MMMM yyyy", { locale })}
-      </Button>
-      <Popover
-        open={Boolean(anchorEl)}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
-      >
-        <DateProvider>
-          <DateCalendar
-            {...navigationPickerProps}
-            openTo="day"
-            views={["month", "day"]}
-            value={selectedDate}
-            onChange={handleChange}
-          />
-        </DateProvider>
-      </Popover>
-      <LocaleArrow type="next" onClick={handleNext} aria-label="next day" />
+      <div style={{ display: "grid", gap: "5px", gridTemplateColumns: "auto 1fr auto" }}>
+        <LocaleArrow type="prev" onClick={handlePrev} />
+        <Button
+          style={{
+            padding: "4px 10px 4px 10px",
+            fontSize: "0.65rem",
+            background: "#EDEDED",
+            borderRadius: "10%",
+            color: "black",
+            fontWeight: 600,
+          }}
+          onClick={handleOpen}
+        >
+          {format(selectedDate, "dd MMMM yyyy", { locale })}
+        </Button>
+        <Popover
+          open={Boolean(anchorEl)}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+        >
+          <DateProvider>
+            <DateCalendar
+              {...navigationPickerProps}
+              openTo="day"
+              views={["month", "day"]}
+              value={selectedDate}
+              onChange={handleChange}
+            />
+          </DateProvider>
+        </Popover>
+        <LocaleArrow type="next" onClick={handleNext} aria-label="next day" />
+      </div>
     </>
   );
 };
