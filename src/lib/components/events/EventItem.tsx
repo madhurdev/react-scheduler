@@ -199,11 +199,15 @@ const EventItem = ({ event, multiday, hasPrev, hasNext, showdate }: EventItemPro
 
     let item = (
       <div style={{ padding: "2px 6px" }}>
-        <Typography variant="subtitle2" style={{ fontSize: 12 }} noWrap>
+        <Typography
+          variant="subtitle2"
+          style={{ color: "black", fontSize: 14, fontWeight: "600" }}
+          noWrap
+        >
           {event.title}
         </Typography>
         {showdate && (
-          <Typography style={{ fontSize: 11 }} noWrap>
+          <Typography style={{ color: "black", fontSize: 11, fontWeight: "500" }} noWrap>
             {`${format(event.start, hFormat, {
               locale,
             })} - ${format(event.end, hFormat, { locale })}`}
