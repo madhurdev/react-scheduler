@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, useRef, MutableRefObject } from "react";
 import { differenceInMinutes, setHours } from "date-fns";
 import { BORDER_HEIGHT } from "../../helpers/constants";
 import { getTimeZonedDate } from "../../helpers/generals";
@@ -34,18 +34,30 @@ function calculateTop({
 const CurrentTimeBar = (props: CurrentTimeBarProps) => {
   const [top, setTop] = useState(calculateTop(props));
 
+  const focusPoint = useRef<null | HTMLDivElement>(null);
+
   useEffect(() => {
-    const interval = setInterval(() => setTop(calculateTop(props)), 60 * 1000);
+    const interval = setInterval(() => {
+      return setTop(calculateTop(props)), 60 * 1000;
+    });
+
     return () => clearInterval(interval);
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (focusPoint) {
+      focusPoint?.current?.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+    // eslint-disable-next-line
+  }, [top]);
 
   // Prevent showing bar on top of days/header
   if (top < 0) return null;
 
   return (
     <Fragment>
-      <TimeIndicatorBar style={{ top }}>
+      <TimeIndicatorBar ref={focusPoint} style={{ top }}>
         <div />
         <div />
       </TimeIndicatorBar>
